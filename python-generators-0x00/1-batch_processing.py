@@ -18,7 +18,7 @@ def stream_users_in_batches(batch_size):
     if not connection:
         return
     cursor = connection.cursor(dictionary=True)
-    cursor.execute("SELECT * from user_data")
+    cursor.execute("SELECT * FROM user_data")
 
     while True:
         batch = cursor.fetchmany(size=batch_size)
