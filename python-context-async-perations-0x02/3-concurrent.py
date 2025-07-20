@@ -12,7 +12,7 @@ async def async_fetch_users():
                 print(user)
             return users
 
-async def aysnc_fetch_older_users():
+async def async_fetch_older_users():
     async with aiosqlite.connect(DB_FILE) as db:
         async with db.execute("SELECT * FROM users WHERE age > 40") as cursor:
             older_users = await cursor.fetchall()
@@ -23,10 +23,26 @@ async def aysnc_fetch_older_users():
         
 
 async def fetch_concurrently():
-    await asyncio.gather(
-        async_fetch_users(),
-        aysnc_fetch_older_users()
-    )
+
+    try:
+        all_users, older_users = await asyncio.gather(
+            async_fetch_users(),
+            async_fetch_older_users()
+        )
+
+        results = {
+            "all_users": all_users,
+            "older_users": older_users
+        }
+
+        #### we can just return or go further and process the results here, maybe decide to do an aggregation or something that makes sense
+
+        return results
+    
+    except Exception as e:
+        print(f"An error occured during the concurrent check: {e}")
+
+
 
 
 
