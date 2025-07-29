@@ -27,7 +27,9 @@ class TestAccessNestedMap(unittest.TestCase):
         """Test that KeyError is raised with the expected message."""
         with self.assertRaises(KeyError) as context:
             access_nested_map(nested_map, path)
-        self.assertEqual(str(context.exception), f"'{expected_key}'")
+        self.assertEqual(
+            str(context.exception), 
+            f"'{expected_key}'")
 
 
 class TestGetJson(unittest.TestCase):
@@ -47,7 +49,9 @@ class TestGetJson(unittest.TestCase):
         result = get_json(url)
 
         mock_get.assert_called_once_with(url)
-        self.assertEqual(result, payload)
+        self.assertEqual(
+            result, 
+            payload)
 
 
 class TestMemoize(unittest.TestCase):
