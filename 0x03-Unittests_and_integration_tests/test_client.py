@@ -51,7 +51,6 @@ class TestGithubOrgClient(unittest.TestCase):
             result = client._public_repos_url
 
             self.assertEqual(result, test_url)
-      
     @patch('client.get_json')
     def test_public_repos(self, mock_get_json):
         """
@@ -145,3 +144,4 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
