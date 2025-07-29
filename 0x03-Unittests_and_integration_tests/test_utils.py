@@ -51,13 +51,18 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
+    """Unit tests for memoize decorator."""
+
     def test_memoize(self):
+        """Test that memoize caches method results."""
         class TestClass:
             def a_method(self):
+                """Returns 42."""
                 return 42
 
             @memoize
             def a_property(self):
+                """Memoized property that calls a_method."""
                 return self.a_method()
 
         with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
@@ -68,7 +73,6 @@ class TestMemoize(unittest.TestCase):
             self.assertEqual(value1, 42)
             self.assertEqual(value2, 42)
             mock_method.assert_called_once()
-
     
 
 if __name__ == "__main__":
