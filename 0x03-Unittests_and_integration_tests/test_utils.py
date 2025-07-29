@@ -40,7 +40,7 @@ class TestGetJson(unittest.TestCase):
     ])
     @patch('utils.requests.get')
     def test_get_json(self, url, payload, mock_get):
-        """Test that get_json returns the correct payload 
+        """Test that get_json returns the correct payload
         from mocked requests."""
         mock_response = Mock()
         mock_response.json.return_value = payload
@@ -71,7 +71,7 @@ class TestMemoize(unittest.TestCase):
 
         with patch.object(
             TestClass, 'a_method', return_value=42
-            ) as mock_method:
+                ) as mock_method:
             obj = TestClass()
             value1 = obj.a_property
             value2 = obj.a_property
