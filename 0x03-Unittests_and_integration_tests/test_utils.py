@@ -28,13 +28,12 @@ class TestAccessNestedMap(unittest.TestCase):
         with self.assertRaises(KeyError) as context:
             access_nested_map(nested_map, path)
         self.assertEqual(
-            str(context.exception), 
+            str(context.exception),
             f"'{expected_key}'")
 
 
 class TestGetJson(unittest.TestCase):
     """Unit tests for get_json utility."""
-
     @parameterized.expand([
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False}),
@@ -50,7 +49,7 @@ class TestGetJson(unittest.TestCase):
 
         mock_get.assert_called_once_with(url)
         self.assertEqual(
-            result, 
+            result,
             payload)
 
 
