@@ -51,7 +51,9 @@ class TestGithubOrgClient(unittest.TestCase):
             result = client._public_repos_url
 
             self.assertEqual(result, test_url)
+
     @patch('client.get_json')
+
     def test_public_repos(self, mock_get_json):
         """
         Test public_repos returns expected repo names,
@@ -141,7 +143,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
             client.public_repos(license="apache-2.0"),
             self.apache2_repos
         )
-
+        
 if __name__ == "__main__":
     unittest.main()
 
