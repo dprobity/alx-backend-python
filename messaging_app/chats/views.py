@@ -4,8 +4,8 @@ from rest_framework.decorators import api_view, permission_classes, authenticati
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model, authenticate, logout
 from .serializers import (
-    UserRegistrationSerializer, LoginSerializer, LogoutSerializer,
-    MessageSerializer, ConversationSerializer
+    UserRegistrationSerializer, LoginSerializer,
+    MessageCreateSerializer, MessageDisplaySerializer, ConversationSerializer
 )
 from .models import Message, Conversation
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -73,13 +73,13 @@ class ConversationViewSet(viewsets.ModelViewSet):
         messages = conversation.messages.all().order_by('-sent_at')
         paginator = CustomMessagePagination()
         result_page = paginator.paginate_queryset(messages, request)
-        serializer = MessageSerializer(result_page, many=True)
+        serializer = MessageDisplaySerializer(result_page, many=True)
         return paginator.get_paginated_response(serializer.data)
 
 # -- Message ViewSet --
 class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.all()
-    serializer_class = MessageSerializer
+    serializer_class = MessageDisplaySerializer
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication, SessionAuthentication]
     pagination_class = CustomMessagePagination

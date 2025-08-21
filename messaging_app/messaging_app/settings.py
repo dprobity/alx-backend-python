@@ -45,8 +45,9 @@ AUTH_USER_MODEL = 'chats.CustomUser'
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.SessionAuthentication",
         "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
@@ -60,6 +61,15 @@ REST_FRAMEWORK = {
 }
 
 
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # default: 5 minutes
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),     # default: 1 day
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    # ...other options as needed
+}
 
 
 MIDDLEWARE = [

@@ -1,0 +1,11 @@
+Django>=4.2
+djangorestframework>=3.14
+django-environ>=0.11
+djangorestframework-simplejwt>=5.2
+django-cors-headers>=4.3
+django-filter>=24.2
+psycopg2>=2.9      # If using Postgres (recommended for production)
+gunicorn           # For production WSGI server (optional, but best for deployment)
+# If you're using pytest for testing:
+pytest
+pytest-django
