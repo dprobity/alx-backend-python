@@ -1,0 +1,42 @@
+{'default': {'NAME': 'db.sqlite3', 'USER': '', 'PASSWORD': '', 'HOST': '', 'PORT': '', 'ENGINE': 'django.db.backends.sqlite3'}}
+/admin	django.contrib.admin.sites.index	admin:index
+/admin<app_label>/	django.contrib.admin.sites.app_index	admin:app_list
+/admin<url>	django.contrib.admin.sites.catch_all_view
+/adminauth/group/	django.contrib.admin.options.changelist_view	admin:auth_group_changelist
+/adminauth/group/<path:object_id>/	django.views.generic.base.RedirectView
+/adminauth/group/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:auth_group_change
+/adminauth/group/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:auth_group_delete
+/adminauth/group/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:auth_group_history
+/adminauth/group/add/	django.contrib.admin.options.add_view	admin:auth_group_add
+/adminautocomplete/	django.contrib.admin.sites.autocomplete_view	admin:autocomplete
+/adminjsi18n/	django.contrib.admin.sites.i18n_javascript	admin:jsi18n
+/adminlogin/	django.contrib.admin.sites.login	admin:login
+/adminlogout/	django.contrib.admin.sites.logout	admin:logout
+/adminpassword_change/	django.contrib.admin.sites.password_change	admin:password_change
+/adminpassword_change/done/	django.contrib.admin.sites.password_change_done	admin:password_change_done
+/adminr/<path:content_type_id>/<path:object_id>/	django.contrib.contenttypes.views.shortcut	admin:view_on_site
+/api-authlogin/	django.contrib.auth.views.LoginView	rest_framework:login
+/api-authlogout/	django.contrib.auth.views.LogoutView	rest_framework:logout
+/api/	rest_framework.routers.APIRootView	api-root
+/api/	rest_framework.routers.APIRootView	api-root
+/api/<drf_format_suffix:format>	rest_framework.routers.APIRootView	api-root
+/api/<drf_format_suffix:format>	rest_framework.routers.APIRootView	api-root
+/api/conversations/	chats.views.ConversationViewSet	conversation-list
+/api/conversations/<conversation_pk>/messages/	chats.views.MessageViewSet	conversation-messages-list
+/api/conversations/<conversation_pk>/messages/<pk>/	chats.views.MessageViewSet	conversation-messages-detail
+/api/conversations/<conversation_pk>/messages/<pk>\.<format>/	chats.views.MessageViewSet	conversation-messages-detail
+/api/conversations/<conversation_pk>/messages\.<format>/	chats.views.MessageViewSet	conversation-messages-list
+/api/conversations/<pk>/	chats.views.ConversationViewSet	conversation-detail
+/api/conversations/<pk>/messages/	chats.views.ConversationViewSet	conversation-messages
+/api/conversations/<pk>/messages\.<format>/	chats.views.ConversationViewSet	conversation-messages
+/api/conversations/<pk>\.<format>/	chats.views.ConversationViewSet	conversation-detail
+/api/conversations\.<format>/	chats.views.ConversationViewSet	conversation-list
+/api/login/	chats.views.jwt_login	jwt_login
+/api/logout/	chats.views.jwt_logout	jwt_logout
+/api/messages/	chats.views.MessageViewSet	message-list
+/api/messages/<pk>/	chats.views.MessageViewSet	message-detail
+/api/messages/<pk>\.<format>/	chats.views.MessageViewSet	message-detail
+/api/messages\.<format>/	chats.views.MessageViewSet	message-list
+/api/register/	chats.views.UserRegistrationView	register
+/api/token/	rest_framework_simplejwt.views.TokenObtainPairView	token_obtain_pair
+/api/token/refresh/	rest_framework_simplejwt.views.TokenRefreshView	token_refresh

@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "chats",
     "rest_framework",
     "django_filters",
+    "django_extensions",
 ]
 
 
@@ -69,6 +70,8 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),     # default: 1 day
     'AUTH_HEADER_TYPES': ('Bearer',),
     # ...other options as needed
+
+    'USER_ID_FIELD': 'user_id', 
 }
 
 

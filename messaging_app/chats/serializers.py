@@ -43,6 +43,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
 
 class UserDisplaySerializer(serializers.ModelSerializer):
+    email = serializers.CharField(read_only=True)
     full_name = serializers.SerializerMethodField()
 
     class Meta:
@@ -55,6 +56,10 @@ class UserDisplaySerializer(serializers.ModelSerializer):
 
     def get_full_name(self, obj):
         return f"{obj.first_name} {obj.last_name}"
+    
+    def get_preview(self, obj):
+        # Short snippet of the body; safe if message_body is None/empty
+        return (obj.message_body or "")[:25]
 
 
 # --- LOGIN SERIALIZER ---

@@ -9,3 +9,5 @@ gunicorn           # For production WSGI server (optional, but best for deployme
 # If you're using pytest for testing:
 pytest
 pytest-django
+django-extensions
+drf-nested-routers
